@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Open-Vehicle-Unified-App",
-    "slug": "Open-Vehicle-Unified-App",
+    "name": "Open-Vehicle-React-App",
+    "slug": "Open-Vehicle-React-App",
     "platforms": [
       "ios",
       "android"
