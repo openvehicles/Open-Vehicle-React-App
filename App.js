@@ -1,4 +1,6 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
@@ -11,6 +13,7 @@ const Stack = createStackNavigator();
 
 export default function App(props) {
   const isLoadingComplete = useCachedResources();
+  const scheme = useColorScheme();
 
   if (!isLoadingComplete) {
     return null;
@@ -18,7 +21,9 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer linking={LinkingConfiguration}>
+        <NavigationContainer
+          theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
+          linking={LinkingConfiguration}>
           <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
           </Stack.Navigator>
