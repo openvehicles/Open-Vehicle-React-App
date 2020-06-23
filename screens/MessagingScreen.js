@@ -1,8 +1,14 @@
-import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
+// MessagingScreen.js
+//
+// Implements the messaging screen
+// It displays a messaging/chat style UI to allow
+// the user to receive messages from the vehicle, as
+// well as issue commands.
+
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+
+// We are based on the GiftedChat library
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export default function MessagingScreen() {

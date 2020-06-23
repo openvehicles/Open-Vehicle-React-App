@@ -1,7 +1,13 @@
+// SideMenuContent.js
+//
+// Implements the content of the side menu
+
 import * as React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Dimensions } from 'react-native';
+
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+
 import AddVehicle from '../containers/AddVehicle';
 
 const window = Dimensions.get('window');

@@ -1,8 +1,16 @@
-import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
+// LocationScreen.js
+//
+// Implements the location screen
+// This screen is shows a map of the world, with the
+// current position of the vehicle highlighted. It will
+// also show other legends on top, including vehicle
+// range and refueling stations within range.
+
 import * as React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+
+// We are based on Google Maps (in dark mode), or native maps
+// (in light mode)
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 

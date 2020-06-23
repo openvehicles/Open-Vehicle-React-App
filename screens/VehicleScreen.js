@@ -1,10 +1,18 @@
-import { Ionicons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
+// VehicleScreen.js
+//
+// Implements the vehicle screen
+// This is a WebView, with the content dynamically loaded,
+// to allow the greatest flexibility in display customisation.
+
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
+import { Ionicons } from '@expo/vector-icons';
+
+import * as WebBrowser from 'expo-web-browser';
 import { WebView } from 'react-native-webview';
 
-export default function CarScreen() {
+export default function VehicleScreen() {
   return (
     <WebView
       scalesPageToFit={false}

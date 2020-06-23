@@ -1,6 +1,13 @@
-import { Ionicons } from '@expo/vector-icons';
+// SettingsScreen.js
+//
+// Implements the settings screen
+// This screen is intended to be used to control the
+// settings for an individual vehicle.
+
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
+import { Ionicons } from '@expo/vector-icons';
 
 export default function SettingsScreen() {
   return (

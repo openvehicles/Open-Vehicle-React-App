@@ -1,3 +1,7 @@
+// reducers/vehicles.js
+//
+// Redux reducer for vehicle objects
+
 const vehicles = (state = [], action) => {
   switch (action.type) {
     case 'ADD_VEHICLE':

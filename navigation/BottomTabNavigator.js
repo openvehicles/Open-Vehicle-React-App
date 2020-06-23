@@ -1,9 +1,13 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// BottomTabNavigator.js
+//
+// Implements the bottom tab navigation.
+
 import * as React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import StatusScreen from '../screens/StatusScreen';
-import CarScreen from '../screens/CarScreen';
+import VehicleScreen from '../screens/VehicleScreen';
 import LocationScreen from '../screens/LocationScreen';
 import MessagingScreen from '../screens/MessagingScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -28,10 +32,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Car"
-        component={CarScreen}
+        name="Vehicle"
+        component={VehicleScreen}
         options={{
-          title: 'Car',
+          title: 'Vehicle',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-car" />,
         }}
       />
@@ -69,8 +73,8 @@ function getHeaderTitle(route) {
   switch (routeName) {
     case 'Status':
       return 'My Status';
-    case 'Car':
-      return 'My Car';
+    case 'Vehicle':
+      return 'My Vehicle';
     case 'Location':
       return 'My Location';
     case 'Messages':

@@ -1,3 +1,7 @@
+// AddVehicle.js
+//
+// Implement UI for adding a vehicle
+
 import React from 'react'
 import { StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
 import { AddVehicleAction } from '../actions'

@@ -1,6 +1,13 @@
-import * as WebBrowser from 'expo-web-browser';
+// StatusScreen.js
+//
+// Implements the status screen
+// This is a WebView, with the content dynamically loaded,
+// to allow the greatest flexibility in display customisation.
+
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+
+import * as WebBrowser from 'expo-web-browser';
 import { WebView } from 'react-native-webview';
 
 export default function StatusScreen() {

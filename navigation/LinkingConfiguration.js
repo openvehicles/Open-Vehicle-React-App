@@ -1,3 +1,7 @@
+// LinkingConfiguration.js
+//
+// Implements the linking configuration.
+
 import * as Linking from 'expo-linking';
 
 export default {
@@ -7,7 +11,7 @@ export default {
       path: 'root',
       screens: {
         Status: 'status',
-        Car: 'car',
+        Vehicle: 'vehicle',
         Location: 'location',
         Messaging: 'messages',
         Settings: 'settings'

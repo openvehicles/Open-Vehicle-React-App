@@ -1,3 +1,8 @@
+// useCachedResources.js
+//
+// Implement caching of resources
+
+
 import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';

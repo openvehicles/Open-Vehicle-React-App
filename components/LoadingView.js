@@ -1,5 +1,10 @@
+// LoadingView.js
+//
+// Implements the 'loading' View
+
 import * as React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Dimensions } from 'react-native';
+
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
