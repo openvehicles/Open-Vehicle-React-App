@@ -3,20 +3,60 @@
 // Implement UI for adding a vehicle
 
 import React from 'react'
-import { StyleSheet, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, SafeAreaView, View, TouchableOpacity, TextInput } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AddVehicleAction } from '../actions'
 import { connect } from 'react-redux'
+import { Formik } from 'formik';
+
+const MyForm = () =>
+  <Formik
+   initialValues={{
+     username: 'ross@domain.com',
+     password: ''
+    }}
+    onSubmit={(values, actions) => {}}
+    validate={values => {}} >
+    {props => (
+     <>
+       <TextInput
+         style={styles.inputtext}
+         value={props.values.username}
+         onBlur={props.handleBlur('username')}
+         onChangeText={props.handleChange('username')}
+         autoCapitalize='none'
+         autoCorrect={false}
+         autoCompleteType='username'
+         autoFocus={true}
+       />
+       <TextInput
+         style={styles.inputtext}
+         value={props.values.password}
+         onBlur={props.handleBlur('password')}
+         onChangeText={props.handleChange('password')}
+         autoCapitalize='none'
+         autoCorrect={false}
+         autoCompleteType='password'
+         secureTextEntry={true}
+       />
+      <Button
+         title='Submit'
+         type='outline'
+         onPress={() => props.handleSubmit()} />
+     </>
+   )}
+  </Formik>
 
 const AddVehicle = ({ dispatch }) => {
   let input
 
   return (
-    <View>
-    <TextInput placeholder = "Vehicle ID"
-              placeholderTextColor = "#9a73ef"
-              autoCapitalize = "none"
-              style={styles.inputtext} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+         <MyForm />
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   )
 }
 

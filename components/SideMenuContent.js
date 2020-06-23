@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Dimensions } from 'react-native';
+import { Divider } from 'react-native-elements';
 
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
@@ -18,7 +19,7 @@ export default function SideMenuContent(props) {
   return (
     <SafeAreaView theme={scheme === 'dark' ? DarkTheme : DefaultTheme} style={styles.container}>
       <AddVehicle />
-      <View style={{borderBottomColor: 'black',borderBottomWidth: 1}} />
+      <Divider />
       <Text style={styles.menutext}>This is the side menu</Text>
     </SafeAreaView>
   );
