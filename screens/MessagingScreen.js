@@ -11,6 +11,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 // We are based on the GiftedChat library
 import { GiftedChat } from 'react-native-gifted-chat'
+import MenuIcon from '../components/MenuIcon';
+import ConnectionIcon from '../components/ConnectionIcon';
 
 function MessagingView() {
   const [messages, setMessages] = useState([
@@ -54,7 +56,13 @@ const MyStack = createStackNavigator();
 export default function MessagingScreen() {
   return (
     <MyStack.Navigator>
-      <MyStack.Screen name="My Messages" component={MessagingView} />
+      <MyStack.Screen
+        name="My Messages"
+        component={MessagingView}
+        options={{
+          headerLeft: () => <MenuIcon/>,
+          headerRight: () => <ConnectionIcon/>
+        }} />
     </MyStack.Navigator>
   );
 }

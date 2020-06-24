@@ -12,6 +12,8 @@ import { Ionicons } from '@expo/vector-icons';
 
 import * as WebBrowser from 'expo-web-browser';
 import { WebView } from 'react-native-webview';
+import MenuIcon from '../components/MenuIcon';
+import ConnectionIcon from '../components/ConnectionIcon';
 
 function VehicleView() {
   return (
@@ -29,7 +31,13 @@ const MyStack = createStackNavigator();
 export default function MessagingScreen() {
   return (
     <MyStack.Navigator>
-      <MyStack.Screen name="My Vehicle" component={VehicleView} />
+      <MyStack.Screen
+        name="My Vehicle"
+        component={VehicleView}
+        options={{
+          headerLeft: () => <MenuIcon/>,
+          headerRight: () => <ConnectionIcon/>
+        }} />
     </MyStack.Navigator>
   );
 }

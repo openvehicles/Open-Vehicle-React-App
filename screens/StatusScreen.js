@@ -5,11 +5,13 @@
 // to allow the greatest flexibility in display customisation.
 
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import * as WebBrowser from 'expo-web-browser';
 import { WebView } from 'react-native-webview';
+import MenuIcon from '../components/MenuIcon';
+import ConnectionIcon from '../components/ConnectionIcon';
 
 function StatusView() {
   return (
@@ -27,7 +29,13 @@ const MyStack = createStackNavigator();
 export default function StatusScreen() {
   return (
     <MyStack.Navigator>
-      <MyStack.Screen name="My Status" component={StatusView} />
+      <MyStack.Screen
+        name="My Status"
+        component={StatusView}
+        options={{
+          headerLeft: () => <MenuIcon/>,
+          headerRight: () => <ConnectionIcon/>
+        }} />
     </MyStack.Navigator>
   );
 }

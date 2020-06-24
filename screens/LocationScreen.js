@@ -15,6 +15,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
+import MenuIcon from '../components/MenuIcon';
+import ConnectionIcon from '../components/ConnectionIcon';
+
 const mapStyleDark = [
   {
     "elementType": "geometry",
@@ -267,7 +270,13 @@ const MyStack = createStackNavigator();
 export default function MessagingScreen() {
   return (
     <MyStack.Navigator>
-      <MyStack.Screen name="My Location" component={LocationView} />
+      <MyStack.Screen
+        name="My Location"
+        component={LocationView}
+        options={{
+          headerLeft: () => <MenuIcon/>,
+          headerRight: () => <ConnectionIcon/>
+        }} />
     </MyStack.Navigator>
   );
 }

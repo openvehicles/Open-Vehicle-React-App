@@ -9,6 +9,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Ionicons } from '@expo/vector-icons';
+import MenuIcon from '../components/MenuIcon';
+import ConnectionIcon from '../components/ConnectionIcon';
 
 function SettingsView() {
   return (
@@ -21,7 +23,13 @@ const MyStack = createStackNavigator();
 export default function SettingsScreen() {
   return (
     <MyStack.Navigator>
-      <MyStack.Screen name="My Settings" component={SettingsView} />
+      <MyStack.Screen
+        name="My Settings"
+        component={SettingsView}
+        options={{
+          headerLeft: () => <MenuIcon/>,
+          headerRight: () => <ConnectionIcon/>
+        }} />
     </MyStack.Navigator>
   );
 }
