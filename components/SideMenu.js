@@ -7,17 +7,18 @@ import { ScrollView, StyleSheet, Text, View, SafeAreaView, Dimensions } from 're
 import { Divider } from 'react-native-elements';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, DarkTheme, useTheme } from '@react-navigation/native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
 export default function SideMenu(props) {
   const scheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <DrawerContentScrollView
       theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
       {...props}>
-      <Text style={styles.menutext}>This is the side menu</Text>
+      <Text style={{ color: colors.text }}>This is the side menu</Text>
     </DrawerContentScrollView>
   );
 }
@@ -25,10 +26,5 @@ export default function SideMenu(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  menutext: {
-    flex: 1,
-    backgroundColor: '#fafafa',
-    textAlign: 'center',
   }
   });

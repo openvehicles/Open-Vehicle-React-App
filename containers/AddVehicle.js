@@ -5,6 +5,10 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, View, TouchableOpacity, TextInput } from 'react-native';
 import { Divider, Input, Button } from 'react-native-elements';
+
+import { NavigationContainer, DefaultTheme, DarkTheme, useTheme } from '@react-navigation/native';
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AddVehicleAction } from '../actions'
 import { connect } from 'react-redux'
@@ -23,8 +27,8 @@ const MyForm = () =>
        <Input
          placeholder={"User name"}
          label="User name"
-         style={styles.inputtext}
          value={props.values.username}
+         inputStyle={styles.inputtext}
          onBlur={props.handleBlur('username')}
          onChangeText={props.handleChange('username')}
          autoCapitalize='none'
@@ -34,8 +38,8 @@ const MyForm = () =>
        <Input
          placeholder={"Password"}
          label="Password"
-         style={styles.inputtext}
          value={props.values.password}
+         inputStyle={styles.inputtext}
          onBlur={props.handleBlur('password')}
          onChangeText={props.handleChange('password')}
          autoCapitalize='none'
@@ -52,10 +56,12 @@ const MyForm = () =>
   </Formik>
 
 const AddVehicle = ({ dispatch }) => {
-  let input
+  const scheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+     style={styles.container} >
       <KeyboardAwareScrollView contentContainerStyle={styles.container}>
          <Divider />
          <MyForm />
@@ -68,12 +74,12 @@ export default connect()(AddVehicle)
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fafafa'
+    flex: 1
   },
   inputtext: {
-    color: 'black'
-  }
+    color: 'white',
+    flex: 1
+   }
   });
 
 

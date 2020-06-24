@@ -4,16 +4,18 @@
 
 import * as React from 'react';
 
+import { useTheme } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import Colors from '../constants/Colors';
 
 export default function ConnectionIcon(props) {
+  const { colors } = useTheme();
+
   return (
     <Ionicons
       name='md-wifi'
       size={30}
       color='white'
-      style={{ marginRight: 3 }}
+      style={{ marginRight: 3, color: colors.text }}
     />
   );
 }

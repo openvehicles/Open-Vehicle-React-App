@@ -6,17 +6,17 @@ import * as React from 'react';
 
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
 export default function MenuIcon(props) {
   const navigation = useNavigation();
+  const { colors } = useTheme();
 
   return (
     <Ionicons
       name='md-menu'
       size={30}
-      color='white'
-      style={{ marginLeft: 3 }}
+      style={{ marginLeft: 3, color: colors.text }}
       onPress={() => navigation.toggleDrawer()}
     />
   );
