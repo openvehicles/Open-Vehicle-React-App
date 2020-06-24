@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "Open-Vehicle-React-App",
+    "name": "Open Vehicles",
+    "description": "A cross-platform mobile App to monitor and control Open Vehicles (using a plug-in architecture for vehicle API support, and a highly customisable approach to displays)",
     "slug": "Open-Vehicle-React-App",
     "platforms": [
       "ios",
