@@ -12,6 +12,7 @@ import {
   StyleSheet,
   View,
   SafeAreaView,
+  Dimensions,
   Text } from 'react-native';
 
 // Dark/Light Theme Support
@@ -52,6 +53,7 @@ export const persistor = persistStore(store);
 // Stack navigation
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const window = Dimensions.get('window');
 
 // The App itself
 export default function App(props) {
@@ -73,7 +75,8 @@ export default function App(props) {
                 <Drawer.Navigator
                   mode="modal"
                   initialRouteName="Home"
-                  drawerType="front"
+                  drawerType="slide"
+                  edgeWidth={window.width/5}
                   drawerContent={props => <SideMenu {...props} />} >
                   <Stack.Screen name="Root" component={BottomTabNavigator} />
                 </Drawer.Navigator>
