@@ -6,13 +6,23 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { Ionicons } from '@expo/vector-icons';
 
-export default function SettingsScreen() {
+function SettingsView() {
   return (
     <View>
     </View>
+  );
+}
+
+const MyStack = createStackNavigator();
+export default function SettingsScreen() {
+  return (
+    <MyStack.Navigator>
+      <MyStack.Screen name="My Settings" component={SettingsView} />
+    </MyStack.Navigator>
   );
 }
 

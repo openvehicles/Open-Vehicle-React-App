@@ -7,11 +7,12 @@
 
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // We are based on the GiftedChat library
 import { GiftedChat } from 'react-native-gifted-chat'
 
-export default function MessagingScreen() {
+function MessagingView() {
   const [messages, setMessages] = useState([
     /**
      * Mock message data
@@ -46,6 +47,15 @@ export default function MessagingScreen() {
       onSend={newMessage => handleSend(newMessage)}
       user={{ _id: 1 }}
     />
+  );
+}
+
+const MyStack = createStackNavigator();
+export default function MessagingScreen() {
+  return (
+    <MyStack.Navigator>
+      <MyStack.Screen name="My Messages" component={MessagingView} />
+    </MyStack.Navigator>
   );
 }
 

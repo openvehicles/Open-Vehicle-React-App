@@ -8,6 +8,7 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // We are based on Google Maps (in dark mode), or native maps
 // (in light mode)
@@ -248,7 +249,7 @@ const mapStyleDark = [
   }
 ];
 
-export default function LocationScreen() {
+function LocationView() {
   const scheme = useColorScheme();
 
   return (
@@ -259,6 +260,15 @@ export default function LocationScreen() {
         style={styles.mapStyle}
       />
     </View>
+  );
+}
+
+const MyStack = createStackNavigator();
+export default function MessagingScreen() {
+  return (
+    <MyStack.Navigator>
+      <MyStack.Screen name="My Location" component={LocationView} />
+    </MyStack.Navigator>
   );
 }
 

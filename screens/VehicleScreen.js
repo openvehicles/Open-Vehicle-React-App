@@ -6,13 +6,14 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { Ionicons } from '@expo/vector-icons';
 
 import * as WebBrowser from 'expo-web-browser';
 import { WebView } from 'react-native-webview';
 
-export default function VehicleScreen() {
+function VehicleView() {
   return (
     <WebView
       scalesPageToFit={false}
@@ -21,6 +22,15 @@ export default function VehicleScreen() {
       showsHorizontalScrollIndicator={false}
       source={{ uri: 'https://www.openvehicles.com/sites/default/files/pictures/picture-106577-1552925731.jpg' }}
     />
+  );
+}
+
+const MyStack = createStackNavigator();
+export default function MessagingScreen() {
+  return (
+    <MyStack.Navigator>
+      <MyStack.Screen name="My Vehicle" component={VehicleView} />
+    </MyStack.Navigator>
   );
 }
 

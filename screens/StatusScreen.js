@@ -6,11 +6,12 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import * as WebBrowser from 'expo-web-browser';
 import { WebView } from 'react-native-webview';
 
-export default function StatusScreen() {
+function StatusView() {
   return (
     <WebView
       scalesPageToFit={false}
@@ -22,9 +23,18 @@ export default function StatusScreen() {
   );
 }
 
-StatusScreen.navigationOptions = {
-  header: null,
-};
+const MyStack = createStackNavigator();
+export default function StatusScreen() {
+  return (
+    <MyStack.Navigator>
+      <MyStack.Screen name="My Status" component={StatusView} />
+    </MyStack.Navigator>
+  );
+}
+
+//StatusScreen.navigationOptions = {
+//  header: null,
+//};
 
 const styles = StyleSheet.create({
   container: {
