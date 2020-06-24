@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { StyleSheet, SafeAreaView, View, TouchableOpacity, TextInput } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { Input, Button } from 'react-native-elements';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AddVehicleAction } from '../actions'
 import { connect } from 'react-redux'
@@ -13,14 +13,16 @@ import { Formik } from 'formik';
 const MyForm = () =>
   <Formik
    initialValues={{
-     username: 'ross@domain.com',
+     username: '',
      password: ''
     }}
     onSubmit={(values, actions) => {}}
     validate={values => {}} >
     {props => (
      <>
-       <TextInput
+       <Input
+         placeholder={"User name"}
+         label="User name"
          style={styles.inputtext}
          value={props.values.username}
          onBlur={props.handleBlur('username')}
@@ -28,9 +30,10 @@ const MyForm = () =>
          autoCapitalize='none'
          autoCorrect={false}
          autoCompleteType='username'
-         autoFocus={true}
        />
-       <TextInput
+       <Input
+         placeholder={"Password"}
+         label="Password"
          style={styles.inputtext}
          value={props.values.password}
          onBlur={props.handleBlur('password')}
