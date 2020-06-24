@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { StyleSheet, SafeAreaView, View, TouchableOpacity, TextInput } from 'react-native';
-import { Input, Button } from 'react-native-elements';
+import { Divider, Input, Button } from 'react-native-elements';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AddVehicleAction } from '../actions'
 import { connect } from 'react-redux'
@@ -57,6 +57,7 @@ const AddVehicle = ({ dispatch }) => {
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+         <Divider />
          <MyForm />
       </KeyboardAwareScrollView>
     </SafeAreaView>

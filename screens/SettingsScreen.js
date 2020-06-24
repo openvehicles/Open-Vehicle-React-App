@@ -7,14 +7,26 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
 import { Ionicons } from '@expo/vector-icons';
+import { Divider, Button } from 'react-native-elements';
+
+import AddVehicle from '../containers/AddVehicle';
+
 import MenuIcon from '../components/MenuIcon';
 import ConnectionIcon from '../components/ConnectionIcon';
 
 function SettingsView() {
+  const navigation = useNavigation();
+
   return (
     <View>
+    <Divider/>
+    <Button
+      title='Add a Vehicle'
+      onPress={() => navigation.push('Add a Vehicle')}
+    />
     </View>
   );
 }
@@ -30,6 +42,9 @@ export default function SettingsScreen() {
           headerLeft: () => <MenuIcon/>,
           headerRight: () => <ConnectionIcon/>
         }} />
+      <MyStack.Screen
+        name="Add a Vehicle"
+        component={AddVehicle} />
     </MyStack.Navigator>
   );
 }

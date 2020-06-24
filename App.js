@@ -71,6 +71,7 @@ export default function App(props) {
                 theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
                 linking={LinkingConfiguration}>
                 <Drawer.Navigator
+                  mode="modal"
                   initialRouteName="Home"
                   drawerType="front"
                   drawerContent={props => <SideMenu {...props} />} >
