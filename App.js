@@ -17,6 +17,7 @@ import {
 // Dark/Light Theme Support
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 // Redux state/database persisted storage
 import { Provider } from 'react-redux';
@@ -36,8 +37,7 @@ import useCachedResources from './hooks/useCachedResources';
 import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
-import SideMenu from 'react-native-side-menu-updated';
-import SideMenuContent from './components/SideMenuContent';
+import SideMenu from './components/SideMenu';
 
 // Redux persistent configuration store
 const persistConfig = {
@@ -51,12 +51,13 @@ export const persistor = persistStore(store);
 
 // Stack navigation
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 // The App itself
 export default function App(props) {
   const isLoadingComplete = useCachedResources();
   const scheme = useColorScheme();
-  const menu = SideMenuContent();
+  const sidemenu = SideMenu();
 
   if (!isLoadingComplete) {
     return null;
@@ -64,18 +65,19 @@ export default function App(props) {
     return (
       <Provider store={store}>
         <PersistGate loading={<LoadingView />} persistor={persistor}>
-          <SideMenu menu={menu}>
             <View style={styles.container}>
               {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
               <NavigationContainer
                 theme={scheme === 'dark' ? DarkTheme : DefaultTheme}
                 linking={LinkingConfiguration}>
-                <Stack.Navigator>
+                <Drawer.Navigator
+                  initialRouteName="Home"
+                  drawerType="front"
+                  drawerContent={props => <SideMenu {...props} />} >
                   <Stack.Screen name="Root" component={BottomTabNavigator} />
-                </Stack.Navigator>
+                </Drawer.Navigator>
               </NavigationContainer>
             </View>
-          </SideMenu>
         </PersistGate>
       </Provider>
     );
