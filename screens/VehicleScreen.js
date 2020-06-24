@@ -22,6 +22,8 @@ function VehicleView() {
       bounces={false}
       scrollEnabled={false}
       showsHorizontalScrollIndicator={false}
+      originWhitelist={['*']}
+      style={{ marginTop: 20 }}
       source={{ uri: 'https://www.openvehicles.com/sites/default/files/pictures/picture-106577-1552925731.jpg' }}
     />
   );
